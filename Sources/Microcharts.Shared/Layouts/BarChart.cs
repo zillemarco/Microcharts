@@ -4,6 +4,7 @@
 namespace Microcharts
 {
     using System;
+    using System.Collections.Generic;
     using System.Linq;
 
     using SkiaSharp;
@@ -49,13 +50,21 @@ namespace Microcharts
             var headerHeight = CalculateHeaderHeight(valueLabelSizes);
             var itemSize = CalculateItemSize(width, height, footerHeight, headerHeight);
             var origin = CalculateYOrigin(itemSize.Height, headerHeight);
-            var points = this.CalculatePoints(itemSize, origin, headerHeight);
 
-            this.DrawBarAreas(canvas, points, itemSize, headerHeight);
-            this.DrawBars(canvas, points, itemSize, origin, headerHeight);
-            this.DrawPoints(canvas, points);
-            this.DrawFooter(canvas, points, itemSize, height, footerHeight);
-            this.DrawValueLabel(canvas, points, itemSize, height, valueLabelSizes);
+            this.DrawGridLines(canvas, width, height, headerHeight, footerHeight);
+
+            foreach (var entries in this.EntriesCollection)
+            {
+                var entriesList = entries.ToList();
+                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList);
+                this.DrawBarAreas(canvas, points, itemSize, headerHeight, entriesList);
+                this.DrawBars(canvas, points, itemSize, origin, headerHeight, entriesList);
+                this.DrawPoints(canvas, points, entriesList);
+                this.DrawFooter(canvas, points, itemSize, height, footerHeight, entriesList);
+
+                if (this.EntriesCollection.Count == 1)
+                    this.DrawValueLabel(canvas, points, itemSize, height, valueLabelSizes);
+            }
         }
 
         /// <summary>
@@ -66,14 +75,14 @@ namespace Microcharts
         /// <param name="itemSize">The item size.</param>
         /// <param name="origin">The origin.</param>
         /// <param name="headerHeight">The Header height.</param>
-        protected void DrawBars(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float origin, float headerHeight)
+        protected void DrawBars(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float origin, float headerHeight, List<Entry> entries)
         {
             const float MinBarHeight = 4;
             if (points.Length > 0)
             {
-                for (int i = 0; i < this.Entries.Count(); i++)
+                for (int i = 0; i < entries.Count(); i++)
                 {
-                    var entry = this.Entries.ElementAt(i);
+                    var entry = entries.ElementAt(i);
                     var point = points[i];
 
                     using (var paint = new SKPaint
@@ -108,13 +117,13 @@ namespace Microcharts
         /// <param name="points">The entry points.</param>
         /// <param name="itemSize">The item size.</param>
         /// <param name="headerHeight">The header height.</param>
-        protected void DrawBarAreas(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float headerHeight)
+        protected void DrawBarAreas(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float headerHeight, List<Entry> entries)
         {
             if (points.Length > 0 && this.PointAreaAlpha > 0)
             {
                 for (int i = 0; i < points.Length; i++)
                 {
-                    var entry = this.Entries.ElementAt(i);
+                    var entry = entries.ElementAt(i);
                     var point = points[i];
 
                     using (var paint = new SKPaint

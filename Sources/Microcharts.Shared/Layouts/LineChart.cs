@@ -3,6 +3,7 @@
 
 namespace Microcharts
 {
+    using System.Collections.Generic;
     using System.Linq;
     using SkiaSharp;
 
@@ -53,16 +54,24 @@ namespace Microcharts
             var headerHeight = CalculateHeaderHeight(valueLabelSizes);
             var itemSize = CalculateItemSize(width, height, footerHeight, headerHeight);
             var origin = CalculateYOrigin(itemSize.Height, headerHeight);
-            var points = this.CalculatePoints(itemSize, origin, headerHeight);
 
-            this.DrawArea(canvas, points, itemSize, origin);
-            this.DrawLine(canvas, points, itemSize);
-            this.DrawPoints(canvas, points);
-            this.DrawFooter(canvas, points, itemSize, height, footerHeight);
-            this.DrawValueLabel(canvas, points, itemSize, height, valueLabelSizes);
+            this.DrawGridLines(canvas, width, height, headerHeight, footerHeight);
+
+            foreach (var entries in this.EntriesCollection)
+            {
+                var entriesList = entries.ToList();
+                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList);
+                this.DrawArea(canvas, points, itemSize, origin, entriesList);
+                this.DrawLine(canvas, points, itemSize, entriesList);
+                this.DrawPoints(canvas, points, entriesList);
+                this.DrawFooter(canvas, points, itemSize, height, footerHeight, entriesList);
+
+                if (this.EntriesCollection.Count == 1)
+                    this.DrawValueLabel(canvas, points, itemSize, height, valueLabelSizes);
+            }
         }
 
-        protected void DrawLine(SKCanvas canvas, SKPoint[] points, SKSize itemSize)
+        protected void DrawLine(SKCanvas canvas, SKPoint[] points, SKSize itemSize, List<Entry> entries)
         {
             if (points.Length > 1 && this.LineMode != LineMode.None)
             {
@@ -74,7 +83,7 @@ namespace Microcharts
                     IsAntialias = true,
                 })
                 {
-                    using (var shader = this.CreateGradient(points))
+                    using (var shader = this.CreateGradient(points, entries))
                     {
                         paint.Shader = shader;
 
@@ -87,8 +96,8 @@ namespace Microcharts
                         {
                             if (this.LineMode == LineMode.Spline)
                             {
-                                var entry = this.Entries.ElementAt(i);
-                                var nextEntry = this.Entries.ElementAt(i + 1);
+                                var entry = entries.ElementAt(i);
+                                var nextEntry = entries.ElementAt(i + 1);
                                 var cubicInfo = this.CalculateCubicInfo(points, i, itemSize);
                                 path.CubicTo(cubicInfo.control, cubicInfo.nextControl, cubicInfo.nextPoint);
                             }
@@ -104,7 +113,7 @@ namespace Microcharts
             }
         }
 
-        protected void DrawArea(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float origin)
+        protected void DrawArea(SKCanvas canvas, SKPoint[] points, SKSize itemSize, float origin, List<Entry> entries)
         {
             if (this.LineAreaAlpha > 0 && points.Length > 1)
             {
@@ -115,7 +124,7 @@ namespace Microcharts
                     IsAntialias = true,
                 })
                 {
-                    using (var shader = this.CreateGradient(points, this.LineAreaAlpha))
+                    using (var shader = this.CreateGradient(points, entries, this.LineAreaAlpha))
                     {
                         paint.Shader = shader;
 
@@ -129,8 +138,8 @@ namespace Microcharts
                         {
                             if (this.LineMode == LineMode.Spline)
                             {
-                                var entry = this.Entries.ElementAt(i);
-                                var nextEntry = this.Entries.ElementAt(i + 1);
+                                var entry = entries.ElementAt(i);
+                                var nextEntry = entries.ElementAt(i + 1);
                                 var cubicInfo = this.CalculateCubicInfo(points, i, itemSize);
                                 path.CubicTo(cubicInfo.control, cubicInfo.nextControl, cubicInfo.nextPoint);
                             }
@@ -160,7 +169,7 @@ namespace Microcharts
             return (point, currentControl, nextPoint, nextControl);
         }
 
-        private SKShader CreateGradient(SKPoint[] points, byte alpha = 255)
+        private SKShader CreateGradient(SKPoint[] points, List<Entry> entries, byte alpha = 255)
         {
             var startX = points.First().X;
             var endX = points.Last().X;
@@ -169,7 +178,7 @@ namespace Microcharts
             return SKShader.CreateLinearGradient(
                 new SKPoint(startX, 0),
                 new SKPoint(endX, 0),
-                this.Entries.Select(x => x.Color.WithAlpha(alpha)).ToArray(),
+                entries.Select(x => x.Color.WithAlpha(alpha)).ToArray(),
                 null,
                 SKShaderTileMode.Clamp);
         }

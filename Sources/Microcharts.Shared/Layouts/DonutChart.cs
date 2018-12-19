@@ -30,16 +30,22 @@ namespace Microcharts
         public override void DrawContent(SKCanvas canvas, int width, int height)
         {
             this.DrawCaption(canvas, width, height);
+
+            if (!this.EntriesCollection.Any())
+                return;
+
             using (new SKAutoCanvasRestore(canvas))
             {
+                var entries = this.EntriesCollection[0];
+
                 canvas.Translate(width / 2, height / 2);
-                var sumValue = this.Entries.Sum(x => Math.Abs(x.Value));
+                var sumValue = entries.Sum(x => Math.Abs(x.Value));
                 var radius = (Math.Min(width, height) - (2 * Margin)) / 2;
 
                 var start = 0.0f;
-                for (int i = 0; i < this.Entries.Count(); i++)
+                for (int i = 0; i < entries.Count(); i++)
                 {
-                    var entry = this.Entries.ElementAt(i);
+                    var entry = entries.ElementAt(i);
                     var end = start + (Math.Abs(entry.Value) / sumValue);
 
                     // Sector
@@ -61,23 +67,28 @@ namespace Microcharts
 
         private void DrawCaption(SKCanvas canvas, int width, int height)
         {
-            var sumValue = this.Entries.Sum(x => Math.Abs(x.Value));
+            if (!this.EntriesCollection.Any())
+                return;
+
+            var entries = this.EntriesCollection[0];
+
+            var sumValue = entries.Sum(x => Math.Abs(x.Value));
             var rightValues = new List<Entry>();
             var leftValues = new List<Entry>();
 
             int i = 0;
             var current = 0.0f;
-            while (i < this.Entries.Count() && (current < sumValue / 2))
+            while (i < entries.Count() && (current < sumValue / 2))
             {
-                var entry = this.Entries.ElementAt(i);
+                var entry = entries.ElementAt(i);
                 rightValues.Add(entry);
                 current += Math.Abs(entry.Value);
                 i++;
             }
 
-            while (i < this.Entries.Count())
+            while (i < entries.Count())
             {
-                var entry = this.Entries.ElementAt(i);
+                var entry = entries.ElementAt(i);
                 leftValues.Add(entry);
                 i++;
             }

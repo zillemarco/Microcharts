@@ -45,8 +45,8 @@
 	 <file src="..\Sources\Microcharts.iOS\bin\Release\Microcharts.iOS.dll" target="lib\Xamarin.iOS10\Microcharts.iOS.dll"/>
      
      <!-- UWP -->
-	 <file src="..\Sources\Microcharts.Uwp\bin\Release\Microcharts.dll" target="lib\uap\Microcharts.dll"/>
-	 <file src="..\Sources\Microcharts.Uwp\bin\Release\Microcharts.Uwp.dll" target="lib\uap\Microcharts.Uwp.dll"/>
+	 <!-- <file src="..\Sources\Microcharts.Uwp\bin\Release\Microcharts.dll" target="lib\uap\Microcharts.dll"/> -->
+	 <!-- <file src="..\Sources\Microcharts.Uwp\bin\Release\Microcharts.Uwp.dll" target="lib\uap\Microcharts.Uwp.dll"/> -->
      
      <!-- macOS -->
 	 <file src="..\Sources\Microcharts.macOS\bin\Release\Microcharts.dll" target="lib\xamarinmac\Microcharts.dll"/>

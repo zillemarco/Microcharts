@@ -34,7 +34,7 @@ namespace Microcharts
         /// Gets or sets the data entries.
         /// </summary>
         /// <value>The entries.</value>
-        public IEnumerable<Entry> Entries { get; set; }
+        public IList<IEnumerable<Entry>> EntriesCollection { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum value from entries. If not defined, it will be the minimum between zero and the 
@@ -45,17 +45,29 @@ namespace Microcharts
         {
             get
             {
-                if (!this.Entries.Any())
-                {
+                if (!this.EntriesCollection.Any())
                     return 0;
-                } 
+
+                float? minValueOfCollections = null;
+
+                foreach (var entries in this.EntriesCollection)
+                {
+                    if (entries.Any())
+                    {
+                        if (minValueOfCollections == null)
+                            minValueOfCollections = entries.Min(x => x.Value);
+                        else
+                            minValueOfCollections = Math.Min(minValueOfCollections.Value, entries.Min(x => x.Value));
+                    }
+                }
+
+                if (minValueOfCollections == null)
+                    return 0;
 
                 if (this.InternalMinValue == null)
-                {
-                    return Math.Min(0, this.Entries.Min(x => x.Value));
-                } 
+                    return minValueOfCollections.Value;
 
-                return Math.Min(this.InternalMinValue.Value, this.Entries.Min(x => x.Value));
+                return Math.Min(this.InternalMinValue.Value, minValueOfCollections.Value);
             }
 
             set => this.InternalMinValue = value;
@@ -70,17 +82,29 @@ namespace Microcharts
         {
             get
             {
-                if (!this.Entries.Any()) 
-                {
+                if (!this.EntriesCollection.Any())
                     return 0;
-                } 
+
+                float? maxValueOfCollections = null;
+
+                foreach (var entries in this.EntriesCollection)
+                {
+                    if (entries.Any())
+                    {
+                        if (maxValueOfCollections == null)
+                            maxValueOfCollections = entries.Max(x => x.Value);
+                        else
+                            maxValueOfCollections = Math.Max(maxValueOfCollections.Value, entries.Max(x => x.Value));
+                    }
+                }
+
+                if (maxValueOfCollections == null)
+                    return 0;
 
                 if (this.InternalMaxValue == null)
-                {
-                   return Math.Max(0, this.Entries.Max(x => x.Value)); 
-                } 
+                    return maxValueOfCollections.Value;
 
-                return Math.Max(this.InternalMaxValue.Value, this.Entries.Max(x => x.Value));
+                return Math.Max(this.InternalMaxValue.Value, maxValueOfCollections.Value);
             }
 
             set => this.InternalMaxValue = value;
@@ -142,10 +166,9 @@ namespace Microcharts
             {
                 var entry = entries.ElementAt(i);
                 var y = margin + (i * ySpace);
+
                 if (entries.Count <= 1)
-                {
                     y += (availableHeight - this.LabelTextSize) / 2;
-                }
 
                 var hasLabel = !string.IsNullOrEmpty(entry.Label);
                 var hasValueLabel = !string.IsNullOrEmpty(entry.ValueLabel);
