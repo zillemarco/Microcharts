@@ -49,15 +49,20 @@ namespace Microcharts
             var valueLabelSizes = this.MeasureValueLabels();
             var footerHeight = this.CalculateFooterHeight(valueLabelSizes);
             var headerHeight = this.CalculateHeaderHeight(valueLabelSizes);
-            var itemSize = this.CalculateItemSize(width, height, footerHeight, headerHeight);
+
+            var yLabelsWidth = CalculateYLabelsWidth(height, headerHeight, footerHeight);
+            var availableWidth = width - yLabelsWidth;
+
+            var itemSize = this.CalculateItemSize(availableWidth, height, footerHeight, headerHeight);
             var origin = this.CalculateYOrigin(itemSize.Height, headerHeight);
 
-            this.DrawGridLines(canvas, width, height, headerHeight, footerHeight);
+            this.DrawGridLines(canvas, availableWidth, height, headerHeight, footerHeight, yLabelsWidth);
+            this.DrawYLabels(canvas, height, headerHeight, footerHeight);
 
             foreach (var entries in this.EntriesCollection)
             {
                 var entriesList = entries.ToList();
-                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList);
+                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList, yLabelsWidth);
                 this.DrawPointAreas(canvas, points, origin, entriesList);
                 this.DrawPoints(canvas, points, entriesList);
                 this.DrawFooter(canvas, points, itemSize, height, footerHeight, entriesList);
@@ -76,7 +81,7 @@ namespace Microcharts
             return new SKSize(w, h);
         }
 
-        protected SKPoint[] CalculatePoints(SKSize itemSize, float origin, float headerHeight, List<Entry> entries)
+        protected SKPoint[] CalculatePoints(SKSize itemSize, float origin, float headerHeight, List<Entry> entries, float xOffset)
         {
             var result = new List<SKPoint>();
 
@@ -84,7 +89,7 @@ namespace Microcharts
             {
                 var entry = entries.ElementAt(i);
 
-                var x = this.Margin + (itemSize.Width / 2) + (i * (itemSize.Width + this.Margin));
+                var x = this.Margin + xOffset + (itemSize.Width / 2) + (i * (itemSize.Width + this.Margin));
                 var y = headerHeight + (((this.MaxValue - entry.Value) / this.ValueRange) * itemSize.Height);
                 var point = new SKPoint(x, y);
                 result.Add(point);
@@ -109,6 +114,8 @@ namespace Microcharts
                 {
                     using (var paint = new SKPaint())
                     {
+                        paint.Typeface = this.Typeface;
+                        paint.TextEncoding = this.TextEncoding;
                         paint.TextSize = this.LabelTextSize;
                         paint.IsAntialias = true;
                         paint.Color = entry.TextColor;
@@ -118,17 +125,17 @@ namespace Microcharts
                         var text = entry.Label;
                         paint.MeasureText(text, ref bounds);
 
-                        if (bounds.Width > itemSize.Width)
-                        {
-                            text = text.Substring(0, Math.Min(3, text.Length));
-                            paint.MeasureText(text, ref bounds);
-                        }
+                        //if (bounds.Width > itemSize.Width)
+                        //{
+                        //    text = text.Substring(0, Math.Min(3, text.Length));
+                        //    paint.MeasureText(text, ref bounds);
+                        //}
 
-                        if (bounds.Width > itemSize.Width)
-                        {
-                            text = text.Substring(0, Math.Min(1, text.Length));
-                            paint.MeasureText(text, ref bounds);
-                        }
+                        //if (bounds.Width > itemSize.Width)
+                        //{
+                        //    text = text.Substring(0, Math.Min(1, text.Length));
+                        //    paint.MeasureText(text, ref bounds);
+                        //}
 
                         canvas.DrawText(text, point.X - (bounds.Width / 2), height - this.Margin + (this.LabelTextSize / 2), paint);
                     }
@@ -136,7 +143,89 @@ namespace Microcharts
             }
         }
 
-        protected void DrawGridLines(SKCanvas canvas, float width, float height, float headerHeight, float footerHeight)
+        protected void DrawYLabels(SKCanvas canvas, float height, float headerHeight, float footerHeight)
+        {
+            if (!this.ShowYLabels)
+                return;
+
+            float usableHeight = height - this.Margin - footerHeight - headerHeight;
+            float gridLinesInterval = 40.0f;
+            int linesCount = (int)Math.Floor(usableHeight / gridLinesInterval) + 1;
+            float valueDelta = ValueRange / linesCount;
+
+            if (!this.ShowYLabelOnAllRows)
+            {
+                float minY = height - (footerHeight + this.Margin + (float)Math.Round(0 * gridLinesInterval));
+                float maxY = height - (footerHeight + this.Margin + (float)Math.Round((linesCount - 1) * gridLinesInterval));
+
+                var minYLabel = $"{this.MinValue}{this.YUnitMeasure}";
+                if (!string.IsNullOrEmpty(minYLabel))
+                {
+                    using (var paint = new SKPaint())
+                    {
+                        paint.Typeface = this.Typeface;
+                        paint.TextEncoding = this.TextEncoding;
+                        paint.TextSize = this.LabelTextSize;
+                        paint.IsAntialias = true;
+                        paint.Color = this.YLabelsColor;
+                        paint.IsStroke = false;
+
+                        var bounds = new SKRect();
+                        var text = minYLabel;
+                        paint.MeasureText(text, ref bounds);
+
+                        canvas.DrawText(text, this.Margin, minY + (bounds.Height / 2), paint);
+                    }
+                }
+
+                var maxYLabel = $"{this.MaxValue}{this.YUnitMeasure}";
+                if (!string.IsNullOrEmpty(maxYLabel))
+                {
+                    using (var paint = new SKPaint())
+                    {
+                        paint.Typeface = this.Typeface;
+                        paint.TextEncoding = this.TextEncoding;
+                        paint.TextSize = this.LabelTextSize;
+                        paint.IsAntialias = true;
+                        paint.Color = this.YLabelsColor;
+                        paint.IsStroke = false;
+
+                        var bounds = new SKRect();
+                        var text = maxYLabel;
+                        paint.MeasureText(text, ref bounds);
+
+                        canvas.DrawText(text, this.Margin, maxY + (bounds.Height / 2), paint);
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < linesCount; i++)
+                {
+                    var value = Math.Round(this.MinValue + (valueDelta * i), 1);
+                    var label = $"{value}{this.YUnitMeasure}";
+
+                    using (var paint = new SKPaint())
+                    {
+                        float y = height - (footerHeight + this.Margin + (float)Math.Round(i * gridLinesInterval));
+
+                        paint.Typeface = this.Typeface;
+                        paint.TextEncoding = this.TextEncoding;
+                        paint.TextSize = this.LabelTextSize;
+                        paint.IsAntialias = true;
+                        paint.Color = this.YLabelsColor;
+                        paint.IsStroke = false;
+
+                        var bounds = new SKRect();
+                        paint.MeasureText(label, ref bounds);
+
+                        canvas.DrawText(label, this.Margin, y + (bounds.Height / 2), paint);
+                    }
+                }
+            }
+        }
+
+        protected void DrawGridLines(SKCanvas canvas, float width, float height, float headerHeight, float footerHeight, float xOffset)
         {
             float usableHeight = height - this.Margin - footerHeight - headerHeight;
 
@@ -153,7 +242,7 @@ namespace Microcharts
                     float y = height - (footerHeight + this.Margin + (float)Math.Round(i * gridLinesInterval));
 
                     paint.Color = color;
-                    canvas.DrawLine(this.Margin, y, width - this.Margin, y, paint);
+                    canvas.DrawLine(this.Margin + xOffset, y, width - this.Margin, y, paint);
                 }
             }
         }
@@ -215,6 +304,8 @@ namespace Microcharts
                             {
                                 using (var paint = new SKPaint())
                                 {
+                                    paint.Typeface = this.Typeface;
+                                    paint.TextEncoding = this.TextEncoding;
                                     paint.TextSize = this.LabelTextSize;
                                     paint.FakeBoldText = true;
                                     paint.IsAntialias = true;
@@ -267,12 +358,69 @@ namespace Microcharts
             return result;
         }
 
+        protected int CalculateYLabelsWidth(float height, float headerHeight, float footerHeight)
+        {
+            if (!this.ShowYLabels)
+                return 0;
+
+            int maxWidth = 0;
+
+            if (!this.ShowYLabelOnAllRows)
+            {
+                using (var paint = new SKPaint())
+                {
+                    paint.TextSize = this.LabelTextSize;
+
+                    var bounds = new SKRect();
+                    paint.MeasureText($"{this.MinValue}{this.YUnitMeasure}", ref bounds);
+                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                }
+
+                using (var paint = new SKPaint())
+                {
+                    paint.Typeface = this.Typeface;
+                    paint.TextEncoding = this.TextEncoding;
+                    paint.TextSize = this.LabelTextSize;
+
+                    var bounds = new SKRect();
+                    paint.MeasureText($"{this.MaxValue}{this.YUnitMeasure}", ref bounds);
+                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                }
+            }
+            else
+            {
+                float gridLinesInterval = 40.0f;
+                float usableHeight = height - this.Margin - footerHeight - headerHeight;
+                int linesCount = (int)Math.Floor(usableHeight / gridLinesInterval) + 1;
+                float valueDelta = ValueRange / linesCount;
+
+                for (int i = 0; i < linesCount; i++)
+                {
+                    using (var paint = new SKPaint())
+                    {
+                        paint.Typeface = this.Typeface;
+                        paint.TextEncoding = this.TextEncoding;
+                        paint.TextSize = this.LabelTextSize;
+
+                        var value = Math.Round(this.MinValue + (valueDelta * i), 1);
+                        var bounds = new SKRect();
+                        paint.MeasureText($"{value}{this.YUnitMeasure}", ref bounds);
+                        maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                    }
+                }
+            }
+
+            return maxWidth;
+        }
+
         protected SKRect[] MeasureValueLabels()
         {
             if(this.EntriesCollection.Count == 1)
             {
                 using (var paint = new SKPaint())
                 {
+                    paint.Typeface = this.Typeface;
+                    paint.TextEncoding = this.TextEncoding;
                     paint.TextSize = this.LabelTextSize;
                     return this.EntriesCollection[0].Select(e =>
                     {

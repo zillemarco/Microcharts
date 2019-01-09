@@ -36,6 +36,14 @@ namespace Microcharts
         /// <value>The entries.</value>
         public IList<IEnumerable<Entry>> EntriesCollection { get; set; }
 
+        public bool ShowYLabels { get; set; } = true;
+        public bool ShowYLabelOnAllRows { get; set; } = true;
+        public string YUnitMeasure { get; set; } = "°C";
+        public SKColor YLabelsColor { get; set; } = SKColors.Black;
+
+        public SKTypeface Typeface { get; set; } = null;
+        public SKTextEncoding TextEncoding { get; set; } = SKTextEncoding.Utf8;
+
         /// <summary>
         /// Gets or sets the minimum value from entries. If not defined, it will be the minimum between zero and the 
         /// minimal entry value.

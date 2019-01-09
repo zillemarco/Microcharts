@@ -48,15 +48,20 @@ namespace Microcharts
             var valueLabelSizes = MeasureValueLabels();
             var footerHeight = CalculateFooterHeight(valueLabelSizes);
             var headerHeight = CalculateHeaderHeight(valueLabelSizes);
-            var itemSize = CalculateItemSize(width, height, footerHeight, headerHeight);
+
+            var yLabelsWidth = CalculateYLabelsWidth(height, headerHeight, footerHeight);
+            var availableWidth = width - yLabelsWidth;
+
+            var itemSize = CalculateItemSize(availableWidth, height, footerHeight, headerHeight);
             var origin = CalculateYOrigin(itemSize.Height, headerHeight);
 
-            this.DrawGridLines(canvas, width, height, headerHeight, footerHeight);
+            this.DrawGridLines(canvas, availableWidth, height, headerHeight, footerHeight, yLabelsWidth);
+            this.DrawYLabels(canvas, height, headerHeight, footerHeight);
 
             foreach (var entries in this.EntriesCollection)
             {
                 var entriesList = entries.ToList();
-                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList);
+                var points = this.CalculatePoints(itemSize, origin, headerHeight, entriesList, yLabelsWidth);
                 this.DrawBarAreas(canvas, points, itemSize, headerHeight, entriesList);
                 this.DrawBars(canvas, points, itemSize, origin, headerHeight, entriesList);
                 this.DrawPoints(canvas, points, entriesList);

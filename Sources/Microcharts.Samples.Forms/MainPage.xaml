@@ -7,12 +7,16 @@
     x:Class="Microcharts.Samples.Forms.MainPage">
     <ScrollView>
         <StackLayout Spacing="10" BackgroundColor="#EEEEEE" Margin="0,50,0,0">
+            <Frame HasShadow="false" BackgroundColor="Red" Padding="15" Grid.Row="2" Grid.Column="0" CornerRadius="0">
+                <Frame CornerRadius="2" BackgroundColor="Lime">
 <!--            <microcharts:ChartView x:Name="chart1" HeightRequest="140" BackgroundColor="White" />-->
 <!--            <microcharts:ChartView x:Name="chart2" HeightRequest="140" BackgroundColor="White" />-->
-            <microcharts:ChartView x:Name="chart3" HeightRequest="140" BackgroundColor="White" />
+                    <microcharts:ChartView x:Name="chart3" HeightRequest="140" BackgroundColor="White" />
 <!--            <microcharts:ChartView x:Name="chart4" HeightRequest="140" BackgroundColor="White" />-->
 <!--            <microcharts:ChartView x:Name="chart5" HeightRequest="140" BackgroundColor="White" />-->
 <!--            <microcharts:ChartView x:Name="chart6" HeightRequest="140" BackgroundColor="White" />-->
+                </Frame>
+            </Frame>
         </StackLayout>
     </ScrollView>
 </ContentPage>

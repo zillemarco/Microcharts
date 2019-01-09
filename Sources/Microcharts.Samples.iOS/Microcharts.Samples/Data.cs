@@ -120,25 +120,486 @@
             {
                 new Entry(212)
                 {
-                    Label = "UWP",
                     ValueLabel = "212",
                     Color = SKColor.Parse("#ff0000")
                 },
                 new Entry(248)
                 {
-                    Label = "Android",
                     ValueLabel = "248",
                     Color = SKColor.Parse("#ff0000")
                 },
                 new Entry(128)
                 {
-                    Label = "iOS",
                     ValueLabel = "128",
                     Color = SKColor.Parse("#ff0000")
                 },
                 new Entry(514)
                 {
-                    Label = "Shared",
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
+                    ValueLabel = "514",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(248)
+                {
+                    ValueLabel = "248",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(128)
+                {
+                    ValueLabel = "128",
+                    Color = SKColor.Parse("#ff0000")
+                },
+                new Entry(514)
+                {
                     ValueLabel = "514",
                     Color = SKColor.Parse("#ff0000")
                 }
@@ -148,31 +609,486 @@
             {
                 new Entry(75)
                 {
-                    Label = "UWP",
                     ValueLabel = "75",
                     Color = SKColor.Parse("#00ff00")
                 },
                 new Entry(122)
                 {
-                    Label = "Android",
                     ValueLabel = "122",
                     Color = SKColor.Parse("#00ff00")
                 },
                 new Entry(620)
                 {
-                    Label = "iOS",
                     ValueLabel = "620",
                     Color = SKColor.Parse("#00ff00")
                 },
                 new Entry(500)
                 {
-                    Label = "Shared",
                     ValueLabel = "500",
                     Color = SKColor.Parse("#00ff00")
                 },
                 new Entry(320)
                 {
-                    Label = "BBB",
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
+                    ValueLabel = "320",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(122)
+                {
+                    ValueLabel = "122",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(620)
+                {
+                    ValueLabel = "620",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(500)
+                {
+                    ValueLabel = "500",
+                    Color = SKColor.Parse("#00ff00")
+                },
+                new Entry(320)
+                {
                     ValueLabel = "320",
                     Color = SKColor.Parse("#00ff00")
                 }
@@ -185,7 +1101,8 @@
                 new LineChart
                 {
                     EntriesCollection = new List<IEnumerable<Entry>> { entriesA, entriesB },
-                    LineMode = LineMode.Spline,
+                    LineMode = LineMode.Straight,
+                    LineAreaAlpha = 0,
                     LineSize = 4,
                     PointMode = PointMode.None,
                     PointSize = 18,
