@@ -39,7 +39,7 @@ namespace Microcharts
         public bool ShowYLabels { get; set; } = true;
         public bool ShowYLabelOnAllRows { get; set; } = true;
         public string YUnitMeasure { get; set; } = "°C";
-        public SKColor YLabelsColor { get; set; } = SKColors.Black;
+        public SKColor YLabelsColor { get; set; } = SKColors.Gray;
 
         public SKTypeface Typeface { get; set; } = null;
         public SKTextEncoding TextEncoding { get; set; } = SKTextEncoding.Utf8;

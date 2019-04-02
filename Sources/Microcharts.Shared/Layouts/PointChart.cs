@@ -158,7 +158,7 @@ namespace Microcharts
                 float minY = height - (footerHeight + this.Margin + (float)Math.Round(0 * gridLinesInterval));
                 float maxY = height - (footerHeight + this.Margin + (float)Math.Round((linesCount - 1) * gridLinesInterval));
 
-                var minYLabel = $"{this.MinValue}{this.YUnitMeasure}";
+                var minYLabel = MinValue.ToString("0.0") + this.YUnitMeasure;
                 if (!string.IsNullOrEmpty(minYLabel))
                 {
                     using (var paint = new SKPaint())
@@ -178,7 +178,7 @@ namespace Microcharts
                     }
                 }
 
-                var maxYLabel = $"{this.MaxValue}{this.YUnitMeasure}";
+                var maxYLabel = MaxValue.ToString("0.0") + this.YUnitMeasure;
                 if (!string.IsNullOrEmpty(maxYLabel))
                 {
                     using (var paint = new SKPaint())
@@ -203,7 +203,7 @@ namespace Microcharts
                 for (int i = 0; i < linesCount; i++)
                 {
                     var value = Math.Round(this.MinValue + (valueDelta * i), 1);
-                    var label = $"{value}{this.YUnitMeasure}";
+                    var label = value.ToString("0.0") + this.YUnitMeasure;
 
                     using (var paint = new SKPaint())
                     {
@@ -373,7 +373,7 @@ namespace Microcharts
 
                     var bounds = new SKRect();
                     paint.MeasureText($"{this.MinValue}{this.YUnitMeasure}", ref bounds);
-                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 20);
                 }
 
                 using (var paint = new SKPaint())
@@ -384,7 +384,7 @@ namespace Microcharts
 
                     var bounds = new SKRect();
                     paint.MeasureText($"{this.MaxValue}{this.YUnitMeasure}", ref bounds);
-                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                    maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 20);
                 }
             }
             else
@@ -405,7 +405,7 @@ namespace Microcharts
                         var value = Math.Round(this.MinValue + (valueDelta * i), 1);
                         var bounds = new SKRect();
                         paint.MeasureText($"{value}{this.YUnitMeasure}", ref bounds);
-                        maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 10);
+                        maxWidth = Math.Max(maxWidth, (int)Math.Round(bounds.Width) + 20);
                     }
                 }
             }
