@@ -54,13 +54,13 @@ namespace Microcharts
             var headerHeight = CalculateHeaderHeight(valueLabelSizes);
 
             var yLabelsWidth = CalculateYLabelsWidth(height, headerHeight, footerHeight);
-            var availableWidth = width - yLabelsWidth;
+            var availableWidth = (int)(width - yLabelsWidth - (this.Margin * 2));
 
             var itemSize = CalculateItemSize(availableWidth, height, footerHeight, headerHeight);
             var origin = CalculateYOrigin(itemSize.Height, headerHeight);
 
-            this.DrawGridLines(canvas, width, height, headerHeight, footerHeight, yLabelsWidth);
-            this.DrawYLabels(canvas, height, headerHeight, footerHeight);
+            this.DrawGridLines(canvas, availableWidth, itemSize.Height, headerHeight, yLabelsWidth);
+            this.DrawYLabels(canvas, itemSize.Height, headerHeight);
 
             foreach (var entries in this.EntriesCollection)
             {

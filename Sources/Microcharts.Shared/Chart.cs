@@ -40,6 +40,7 @@ namespace Microcharts
         public bool ShowYLabelOnAllRows { get; set; } = true;
         public string YUnitMeasure { get; set; } = "°C";
         public SKColor YLabelsColor { get; set; } = SKColors.Gray;
+        public int YLinesOffset { get; set; } = 10;
 
         public SKTypeface Typeface { get; set; } = null;
         public SKTextEncoding TextEncoding { get; set; } = SKTextEncoding.Utf8;
@@ -145,6 +146,23 @@ namespace Microcharts
             canvas.Clear(this.BackgroundColor);
 
             this.DrawContent(canvas, width, height);
+        }
+
+        protected float ComputeYLabelHeight()
+        {
+            using (var paint = new SKPaint())
+            {
+                paint.Typeface = this.Typeface;
+                paint.TextEncoding = this.TextEncoding;
+                paint.TextSize = this.LabelTextSize;
+                paint.IsStroke = false;
+
+                var bounds = new SKRect();
+                var text = "0";
+                paint.MeasureText(text, ref bounds);
+
+                return bounds.Height + YLinesOffset;
+            }
         }
 
         /// <summary>
